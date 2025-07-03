@@ -10,7 +10,7 @@ import Navbar from '../components/Navbar'
 
 const Home = () => {
   return (
-     <>
+     <div className=''>
      <Navbar/>
      <HomeHero/>
      <AboutSection/>
@@ -19,7 +19,7 @@ const Home = () => {
      <VisionSection/>
      <CraftedSection/>
      <JournalSection/>
-     </>
+     </div>
   )
 } 
 

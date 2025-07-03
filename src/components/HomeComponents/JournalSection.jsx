@@ -1,5 +1,5 @@
-import React from "react";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { ChevronRight } from "lucide-react";
 
 const posts = [
   {
@@ -29,51 +29,87 @@ const posts = [
 ];
 
 const JournalSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-scroll every 1 second for mobile carousel
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % posts.length);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="bg-[#EAEDE5] w-full py-24 px-6 md:px-16">
+    <section className="bg-[#EAEDE5] w-full py-10 md:py-24 px-6 md:px-16">
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-start">
         {/* Left Title */}
         <div className="flex-1">
-          <p className="text-[18px] gap-40 text-[#5F5F5F] font-medium mb-40 uppercase tracking-widest">
+          <p className="text-[18px] text-[#5F5F5F] font-medium mb-10 md:mb-40 uppercase tracking-widest">
             Journal
           </p>
-          <h2 className="text-[56px] font-serif leading-[1.2] text-[#393F36] mb-12">
+          <h2 className="text-3xl sm:text-[56px] font-serif leading-[1.2] text-[#393F36] mb-12 w-full">
             BEYOND <br /> BLUEPRINTS.
           </h2>
           <button className="flex items-center text-[#2E2E2E] gap-3 text-sm font-semibold uppercase tracking-wider hover:cursor-pointer">
             View All
-            <span className="w-8 h-8 rounded-full text-[20px] bg-white text-black flex items-center justify-center text-sm">
-               <ChevronRight size={24} strokeWidth={2.5} /> 
-            </span>
+            {/* ChevronRight removed as per your request */}
           </button>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
-          {posts.map((post, index) => (
-            <div
-              key={index}
-              className="bg-white overflow-hidden shadow-sm w-[300px] h-[450px] flex flex-col"
-            >
+        {/* Right Cards Section */}
+        <div className="w-full">
+          {/* Mobile View: Single Card Carousel */}
+          <div className="sm:hidden w-full flex justify-center">
+            <div className="w-[300px] bg-white shadow-sm h-[450px] flex flex-col transition duration-500 ease-in-out">
               <img
-                src={post.image}
-                alt={post.title}
+                src={posts[currentIndex].image}
+                alt={posts[currentIndex].title}
                 className="w-full h-[220px] object-cover"
               />
               <div className="p-5 flex-1 flex flex-col">
                 <p className="text-xs font-semibold uppercase text-[#393F36] mb-2 tracking-wide">
-                  {post.tag}
-                  <span className="text-[#828282]"> • {post.date}</span>
+                  {posts[currentIndex].tag}
+                  <span className="text-[#828282]"> • {posts[currentIndex].date}</span>
                 </p>
                 <h3 className="text-md font-semibold text-[#2E2E2E] mb-2">
-                  {post.title}
+                  {posts[currentIndex].title}
                 </h3>
                 <p className="text-sm text-[#5F5F5F] leading-relaxed">
-                  {post.description}
+                  {posts[currentIndex].description}
                 </p>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Arrow at bottom removed for auto-scroll */}
+
+          {/* Desktop Grid View (unchanged) */}
+          <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-10 mt-6">
+            {posts.map((post, index) => (
+              <div
+                key={index}
+                className="bg-white overflow-hidden shadow-sm w-[300px] h-[450px] flex flex-col"
+              >
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-[220px] object-cover"
+                />
+                <div className="p-5 flex-1 flex flex-col">
+                  <p className="text-xs font-semibold uppercase text-[#393F36] mb-2 tracking-wide">
+                    {post.tag}
+                    <span className="text-[#828282]"> • {post.date}</span>
+                  </p>
+                  <h3 className="text-md font-semibold text-[#2E2E2E] mb-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-[#5F5F5F] leading-relaxed">
+                    {post.description}
+                  </p>
+                </div>
+              </div>
+            ))} 
+          </div>
         </div>
       </div>
     </section>

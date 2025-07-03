@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom"; // <-- Add this import
+
 const LocationIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -45,6 +47,7 @@ const projects = [
 
 const ProjectDetails = () => {
   const [current, setCurrent] = useState(0);
+  const navigate = useNavigate(); // <-- Add this line
 
   const prevProject = () => {
     setCurrent((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
@@ -129,8 +132,11 @@ const ProjectDetails = () => {
             <p className="basis-7/10  h-[100px]  font-normal text-[15px] leading-[120%] tracking-[0px] text-[#0E0E0E]">
               {projects[current].description}
             </p>
-            <button className="border-1 mb-8 border-gray-300 text-sm font-semibold text-[#0B2204]  hover:bg-[#393F36] hover:text-white  h-fit transition 
-             w-[150px] px-3 py-3 rounded-4xl">
+            <button
+              className="border-1 mb-8 border-gray-300 text-sm font-semibold text-[#0B2204]  hover:bg-[#393F36] hover:text-white  h-fit transition 
+               w-[150px] px-3 py-3 rounded-4xl"
+              onClick={() => navigate("/projectdetails")}
+            >
               LEARN MORE
             </button>
           </div>

@@ -25,22 +25,22 @@ const OurRoots = () => {
         </div>
 
         {/* Right Content with image layering */}
-        <div className="relative  w-[708px] h-[760px]  ">
+        <div className="relative pl-10 md:pl-0  md:w-[708px] md:h-[760px]">
           <img
             src="/SCENE 3.png" // Background B&W aerial image
             alt="Background"
-            className="w-full h-full  filter grayscale"
+            className="w-[275px] h-[294px] md:w-full md:h-full filter grayscale"
           />
           <img
-            src="/SCENE 8V1.png" // Foreground couch window scene
+            src="/SCENE 8V1.png" // Foreground couch window cene
             alt="Interior"
-            className="absolute object-cover  top-[25%] -left-[20%] w-[328px] h-[430px] shadow-lg"
+            className="absolute object-cover top-[25%] -left-4 md:-left-[20%] w-[127px] h-[167px] md:w-[328px] md:h-[430px] shadow-lg"
           />
         </div>
       </div>
 
       {/* Stats Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-20 ">
+      <div className="grid grid-cols-2  md:grid-cols-4 gap-6 mt-20">
         {[
           { 
             title: "12+",
@@ -62,15 +62,17 @@ const OurRoots = () => {
         ].map((item, idx) => (
           <div
             key={idx}
-            className="bg-[#EAE8E5] border border-zinc-400  p-6 text-center h-[180px] "
+            className="bg-[#EAE8E5] border border-zinc-400 p-6 text-center md:h-[180px]"
           >
-            <div className="text-[36px] font-serif text-[#2B2B2B] mb-2">
+            <div className="text-[36px] font-serif text-[#2B2B2B] md:mb-2">
               {item.title}
               {item.superscript && (
                 <sup className="text-sm ml-1 align-top">{item.superscript}</sup>
               )}
             </div>
-            <p className="text-sm text-gray-600 text-left ">{item.subtitle}</p>
+            <p className="text-sm text-gray-600 text-left">
+              {item.subtitle}
+            </p>
           </div>
         ))}
       </div>

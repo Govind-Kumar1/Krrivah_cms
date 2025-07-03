@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 const LocationIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -45,6 +47,7 @@ const projects = [
 
 const FeaturedProjects = () => {
   const [current, setCurrent] = useState(0);
+  const navigate = useNavigate();
 
   const prevProject = () => {
     setCurrent((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
@@ -55,13 +58,13 @@ const FeaturedProjects = () => {
   };
 
   return (
-    <section className="w-full py-24">
+    <section className=" w-full py-24">
       {/* Header */}
       <div className="flex justify-between items-center mb-18 px-10">
-        <h2 className="text-[20px] font-medium tracking-widest text-[#5F5F5F] uppercase">
+        <h2 className=" text-[14px] md:text-xl font-medium tracking-widest text-[#5F5F5F] uppercase">
           Featured Projects
         </h2>
-        <button className="text-[14px] font-semibold border border-gray-400 h-[40px] w-[103px] rounded-full text-[#0B2204] px-4 py-1 hover:bg-[#393F36] hover:cursor-pointer hover:text-white">
+        <button className="text-sm font-semibold border border-gray-400 md:h-[40px] w-[103px] rounded-full text-[#0B2204] px-4 py-2 hover:bg-[#393F36] hover:cursor-pointer hover:text-white">
           VIEW ALL
         </button>
       </div>
@@ -94,20 +97,17 @@ const FeaturedProjects = () => {
         </div>
 
         {/* Current Project (Center) */}
-        <div className="w-[460px] h-[660px] flex flex-col   "
-        
-        >
-          
+        <div className="w-full max-w-[460px] flex flex-col mx-auto">
           {/* Image with overlay */}
-          <div className="relative w-[460px] h-[780px]">
+          <div className="relative w-full h-[240px] md:h-[600px]">
             <img
               src={projects[current].image}
               alt={projects[current].title}
-              className="w-[460px] h-[600px] object-cover"
+              className="w-full h-full object-cover"
             />
             {/* Overlay: Title and tags */}
-            <div className="absolute bottom-0 left-0 w-full px-6 pt-6 z-10">
-              <h3 className="text-[64px]  mb-3 text-white drop-shadow-lg">
+            <div className="absolute bottom-0 left-0 w-full px-4 md:px-6 pt-6 z-10">
+              <h3 className="text-3xl md:text-[64px] mb-3 text-white drop-shadow-lg">
                 {projects[current].title}
               </h3>
               <div className="flex gap-2 text-xs font-semibold uppercase tracking-wide mb-4 flex-wrap">
@@ -116,31 +116,31 @@ const FeaturedProjects = () => {
                     key={idx}
                     className="h-[30px] gap-[10px] pt-[6px] pr-[12px] pb-[6px] pl-[12px] rounded-full border border-white bg-black/25 backdrop-blur-[5px] text-white flex items-center"
                   >
-                    {/* Show icon if tag includes 'Goa' */}
                     {tag.toLowerCase().includes("goa") && <LocationIcon />}
                     {tag}
                   </span>
                 ))}
               </div>
             </div>
-            {/* Optional: dark overlay for better text visibility */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-transparent z-0" />
           </div>
 
           {/* Content below the image */}
-          <div className="w-full  pt-6 bg-white text-black flex items-center  justify-between gap-[24px]">
-            <p className="basis-7/10  h-[100px]  font-normal text-[15px] leading-[120%] tracking-[0px] text-[#0E0E0E]">
+          <div className="w-full pt-6 bg-white text-black flex flex-col md:flex-row items-center justify-between gap-4 md:gap-[24px] px-4 md:px-0">
+            <p className=" basis-7/10 font-normal text-[15px] leading-[120%] tracking-[0px] text-[#0E0E0E]">
               {projects[current].description}
             </p>
-            <button className="border-1 mb-8 border-gray-300 text-sm font-semibold text-[#0B2204]  hover:bg-[#393F36] hover:text-white  h-fit transition 
-             w-[150px] px-3 py-3 rounded-4xl hover:cursor-pointer">
+            <button
+              className="basis-3/10 border border-gray-300 text-sm font-semibold text-[#0B2204] hover:bg-[#393F36] hover:text-white px-2 py-3 rounded-full transition hover:cursor-pointer"
+              onClick={() => navigate("/ProjectDetails")}
+            >
               LEARN MORE
             </button>
           </div>
         </div>
 
         {/* Next Project (Right) */}
-        <div className="w-[420px] h-[600px] overflow-hidden shadow-md hidden lg:block">
+        <div className="  w-[420px] h-[600px] overflow-hidden shadow-md hidden lg:block">
           <img
             src={projects[(current + 1) % projects.length].image}
             alt="Project Right"
@@ -150,19 +150,19 @@ const FeaturedProjects = () => {
       </div>
 
       {/* Pagination Dots */}
-       <div className="flex justify-center items-center mt-16 gap-4">
+      <div className="flex justify-center items-center mt-24 md:mt-18  gap-4">
         <button
           className="w-8 h-8 rounded-full border border-gray-400 flex items-center justify-center bg-gray-400 text-gray-700 hover:bg-gray-100"
           onClick={prevProject}
         >
-          <ChevronLeft size={22} strokeWidth={3} />  
+          <ChevronLeft size={22} strokeWidth={3} />
         </button>
 
         <button
           className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center"
           onClick={nextProject}
         >
-          <ChevronRight size={24} strokeWidth={2.5} /> 
+          <ChevronRight size={24} strokeWidth={2.5} />
         </button>
       </div>
     </section>

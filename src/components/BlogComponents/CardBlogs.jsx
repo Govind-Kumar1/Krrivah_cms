@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // <-- Add this import
 
 const categories = ["All", "Design", "Projects", "Trends", "Sustainability"];
 
@@ -73,6 +74,7 @@ const posts = [
 export default function BlogGrid() {
   const [currentPage, setCurrentPage] = useState(1);
   const [activeCategory, setActiveCategory] = useState("All");
+  const navigate = useNavigate(); // <-- Add this line
 
   const filteredPosts =
     activeCategory === "All"
@@ -141,7 +143,11 @@ export default function BlogGrid() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {paginatedPosts.map((post) => (
-            <div key={post.id} className="bg-white overflow-hidden shadow-sm">
+            <div
+              key={post.id}
+              className="bg-white overflow-hidden shadow-sm cursor-pointer transition hover:shadow-md"
+              onClick={() => navigate("/blogdetails", { state: { post } })} // <-- Add this
+            >
               <img
                 src={post.image}
                 alt={post.title}
