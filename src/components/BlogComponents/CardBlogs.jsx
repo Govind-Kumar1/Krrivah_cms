@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // <-- Add this import
+import { Link } from "react-router-dom";
 
 const categories = ["All", "Design", "Projects", "Trends", "Sustainability"];
 
@@ -11,7 +11,7 @@ const posts = [
     date: "June 5, 2025",
     title: "Why Design Thinking Matters in Real Estate",
     desc: "From intuitive layouts to natural light flow, design thinking is transforming how we imagine modern living. Here's how we integrate it at Krrivah.",
-    image: "/pic8.png",
+    image: "pic8.png",
   },
   {
     id: 2,
@@ -74,7 +74,6 @@ const posts = [
 export default function BlogGrid() {
   const [currentPage, setCurrentPage] = useState(1);
   const [activeCategory, setActiveCategory] = useState("All");
-  const navigate = useNavigate(); // <-- Add this line
 
   const filteredPosts =
     activeCategory === "All"
@@ -123,9 +122,9 @@ export default function BlogGrid() {
   };
 
   return (
-    <div className="bg-[#f3f4f2] min-h-screen px-6 py-10 mt-18">
-      <div className="max-w-screen-xl mx-auto">
-        <div className="flex gap-4 mb-10">
+    <div className="bg-[#f3f4f2] min-h-screen px-6 py-10 mt-12">
+      <div className="max-w-screen mx-auto">
+        <div className="flex flex-wrap gap-4 mb-10">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -143,28 +142,28 @@ export default function BlogGrid() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {paginatedPosts.map((post) => (
-            <div
-              key={post.id}
-              className="bg-white overflow-hidden shadow-sm cursor-pointer transition hover:shadow-md"
-              onClick={() => navigate("/blogdetails", { state: { post } })} // <-- Add this
-            >
-              <img
-                src={post.image}
-                alt={post.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <p className="text-xs uppercase text-gray-900 font-medium mb-1">
-                  {post.category} <span className="text-gray-400">• {post.date}</span>
-                </p>
-                <h3 className="font-semibold text-gray-900 text-base leading-snug mb-2">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {post.desc}
-                </p>
+            <Link to="/blogdetails">
+              <div key={post.id} className="bg-white overflow-hidden shadow-sm">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-48 object-cover"
+                />
+
+                <div className="p-4">
+                  <p className="text-xs uppercase text-gray-900 font-medium mb-1">
+                    {post.category}{" "}
+                    <span className="text-gray-400">• {post.date}</span>
+                  </p>
+                  <h3 className="font-semibold text-gray-900 text-base leading-snug mb-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    {post.desc}
+                  </p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

@@ -44,7 +44,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
+   <section className="flex flex-col-reverse md:grid md:grid-cols-2 min-h-screen w-full">
       {/* Left Side */}
       <div className="bg-[#4B3B2B] text-white px-10 py-16 flex flex-col justify-between">
         <div className="space-y-12">

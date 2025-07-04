@@ -24,13 +24,14 @@ const DesignSection = () => {
 
         {/* Right Column - Text and Button */} 
         <div className="flex flex-col space-y-5 text-gray-800">
-          <p className="text-base leading-relaxe ml-12 ">
+          {/* Hide these paragraphs on mobile, show on sm and above */}
+          <p className="hidden sm:block text-base leading-relaxed ml-12">
             At Krrivah, design is not just how a space looks — it’s how it makes you feel.
           </p>
-          <p className="text-base leading-relaxed ml-12 ">
+          <p className="hidden sm:block text-base leading-relaxed ml-12">
             We take cues from the land, the light, and the legacy of the region to shape built environments that blend form and function with cultural relevance. Our architectural approach weaves together local materials, climate responsiveness, and timeless spatial planning.
           </p>
-          <p className="text-base leading-relaxed ml-12 ">
+          <p className="hidden sm:block text-base leading-relaxed ml-12">
             From open courtyards that breathe to textures that age gracefully — every decision is a quiet nod to balance, longevity, and livability.
           </p>
 

@@ -17,7 +17,7 @@ const FoundersSection = () => {
           {/* Ananth Rajan */}
           <div className="text-left max-w-[400px]">
             <img
-              src="/image1.png"
+              src="/founder1.png"
               alt="Ananth Rajan"
               className="w-full h-[480px] object-cover object-right"
             />
@@ -31,7 +31,7 @@ const FoundersSection = () => {
           {/* Divya Menon */}
           <div className="text-left max-w-[400px]">
             <img
-              src="/image2.png"
+              src="/founder2.png"
               alt="Divya Menon"
               className="w-full h-[480px] object-cover object-top"
             />

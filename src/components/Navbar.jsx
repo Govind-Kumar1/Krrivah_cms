@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -14,6 +14,11 @@ const Navbar = () => {
     { name: 'BLOGS', path: '/blogs' },
     { name: 'CONTACT', path: '/contact' },
   ];
+
+  // Disable scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
+  }, [menuOpen]);
 
   const getLinkClass = (isActive) => {
     const isHome = location.pathname === '/';
@@ -32,7 +37,7 @@ const Navbar = () => {
     }
     return `px-4 py-2 rounded-full transition underline-offset-8 decoration-2
       ${isActive ? 'bg-black text-white' : 'text-white'}
-      hover:bg-black hover:text-white`; 
+      hover:bg-black hover:text-white`;
   };
 
   return (
@@ -66,10 +71,7 @@ const Navbar = () => {
         {/* Mobile Hamburger Icon */}
         <div className="md:hidden relative z-50">
           <button
-            onClick={() => {
-              setMenuOpen(!menuOpen);
-              console.log('Hamburger Clicked:', !menuOpen);
-            }}
+            onClick={() => setMenuOpen(!menuOpen)}
             className="text-white"
           >
             {menuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -77,15 +79,15 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu with Animation */}
+      {/* Mobile Fullscreen Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden flex flex-col gap-3 px-[5.5vw] pb-4 font-sans font-semibold text-[12px] leading-[100%] tracking-[2px] uppercase bg-black z-40 relative"
+            className="fixed top-0 left-0 w-full h-screen bg-black flex flex-col items-center justify-center gap-6 px-[5.5vw] font-sans font-semibold text-[14px] leading-[100%] tracking-[2px] uppercase z-40"
           >
             {navLinks.map((link) => (
               <NavLink
