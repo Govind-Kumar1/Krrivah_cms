@@ -40,7 +40,7 @@ const OurRoots = () => {
       </div>
 
       {/* Stats Row */}
-      <div className="grid grid-cols-2  md:grid-cols-4 gap-6 mt-20">
+      <div className="grid grid-cols-2  md:grid-cols-4 gap-0 md:gap-6 mt-20">
         {[
           { 
             title: "12+",

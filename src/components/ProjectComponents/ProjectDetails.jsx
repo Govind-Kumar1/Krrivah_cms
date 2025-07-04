@@ -66,107 +66,108 @@ const ProjectDetails = () => {
       </div>
 
       {/* Carousel */}
-      {/* Carousel */}
-      <div className="relative flex items-end gap-40 justify-center">
-        {/* Previous Project (Left) */}
-        <div className="w-[420px] h-[600px]  relative   overflow-hidden hidden lg:block">
+        {/* Carousel */}
+            <div className="relative flex items-end gap-40 justify-center">
+              {/* Previous Project (Left) */}
+              <div className="w-[420px] h-[600px]  relative   overflow-hidden hidden lg:block">
+                <img
+                  src={
+                    projects[(current - 1 + projects.length) % projects.length].image
+                  }
+                  alt="Project Left"
+                  className="w-full h-full object-cover"
+                />
+                <h3 className=" absolute text-[28px] z-20 font-serif ">
+                  {projects[current].title}
+                </h3>
+      
+                <div className="flex gap-2 text-xs font-semibold uppercase tracking-wide mb-4 flex-wrap">
+                  {projects[current].tags.map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className=" rounded-full px-3 py-[6px] flex items-center gap-1"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+      
+             {/* Current Project (Center) */}
+      <div className="w-full max-w-[460px] flex flex-col mx-auto">
+        {/* Image with overlay */}
+        <div className="relative w-full h-[520px] md:h-[600px] px-4 md:px-0 overflow-hidden rounded-md">
           <img
-            src={
-              projects[(current - 1 + projects.length) % projects.length].image
-            }
-            alt="Project Left"
+            src={projects[current].image}
+            alt={projects[current].title}
             className="w-full h-full object-cover"
           />
-          <h3 className=" absolute text-[28px] z-20 font-serif ">
-            {projects[current].title}
-          </h3>
-
-          <div className="flex gap-2 text-xs font-semibold uppercase tracking-wide mb-4 flex-wrap">
-            {projects[current].tags.map((tag, idx) => (
-              <span
-                key={idx}
-                className=" rounded-full px-3 py-[6px] flex items-center gap-1"
-              >
-                {tag}
-              </span>
-            ))}
+      
+          {/* Overlay: Title and tags */}
+          <div className="absolute bottom-0 left-0 w-full p-6 z-10">
+            <h3 className="text-[36px] leading-tight text-white font-serif mb-4">
+              {projects[current].title}
+            </h3>
+      
+            <div className="flex gap-2 text-xs font-semibold uppercase tracking-wide mb-4 flex-wrap">
+              {projects[current].tags.map((tag, idx) => (
+                <span
+                  key={idx}
+                  className="gap-2 px-3 py-[6px] rounded-full border border-white bg-black/30 backdrop-blur-[5px] text-white flex items-center text-[12px]"
+                >
+                  {tag.toLowerCase().includes("goa") && <LocationIcon />}
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
+      
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-0" />
         </div>
-
-        {/* Current Project (Center) */}
-        <div className="w-[460px] h-[660px] flex flex-col   "
-        
+      
+        {/* Description + Button */}
+      {/* Description + Button */}
+      <div className="w-full bg-white text-black p-6 flex flex-col items-center gap-4 md:flex-row ">
+        <p className="md:-ml-5 text-[14px] text-[#0E0E0E] leading-[1.5] text-center md:text-left">
+          {projects[current].description}
+        </p>
+        <button
+          className="w-[280px] border border-gray-300 text-sm font-semibold text-[#0B2204] hover:bg-[#393F36] hover:text-white px-4 py-3 rounded-full transition hover:cursor-pointer"
+          onClick={() => navigate("/ProjectDetails")}
         >
-          
-          {/* Image with overlay */}
-          <div className="relative w-[460px] h-[780px]">
-            <img
-              src={projects[current].image}
-              alt={projects[current].title}
-              className="w-[460px] h-[600px] object-cover"
-            />
-            {/* Overlay: Title and tags */}
-            <div className="absolute bottom-0 left-0 w-full px-6 pt-6 z-10">
-              <h3 className="text-[64px]  mb-3 text-white drop-shadow-lg">
-                {projects[current].title}
-              </h3>
-              <div className="flex gap-2 text-xs font-semibold uppercase tracking-wide mb-4 flex-wrap">
-                {projects[current].tags.map((tag, idx) => (
-                  <span
-                    key={idx}
-                    className="h-[30px] gap-[10px] pt-[6px] pr-[12px] pb-[6px] pl-[12px] rounded-full border border-white bg-black/25 backdrop-blur-[5px] text-white flex items-center"
-                  >
-                    {/* Show icon if tag includes 'Goa' */}
-                    {tag.toLowerCase().includes("goa") && <LocationIcon />}
-                    {tag}
-                  </span>
-                ))}
+          LEARN MORE
+        </button>
+      </div>
+      
+      
+      </div>
+              {/* Next Project (Right) */}
+              <div className="  w-[420px] h-[600px] overflow-hidden shadow-md hidden lg:block">
+                <img
+                  src={projects[(current + 1) % projects.length].image}
+                  alt="Project Right"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
-            {/* Optional: dark overlay for better text visibility */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-transparent z-0" />
-          </div>
-
-          {/* Content below the image */}
-          <div className="w-full  pt-6 bg-white text-black flex items-center  justify-between gap-[24px]">
-            <p className="basis-7/10  h-[100px]  font-normal text-[15px] leading-[120%] tracking-[0px] text-[#0E0E0E]">
-              {projects[current].description}
-            </p>
-            <button
-              className="border-1 mb-8 border-gray-300 text-sm font-semibold text-[#0B2204]  hover:bg-[#393F36] hover:text-white  h-fit transition 
-               w-[150px] px-3 py-3 rounded-4xl"
-              onClick={() => navigate("/projectdetails")}
-            >
-              LEARN MORE
-            </button>
-          </div>
-        </div>
-
-        {/* Next Project (Right) */}
-        <div className="w-[420px] h-[600px] overflow-hidden shadow-md hidden lg:block">
-          <img
-            src={projects[(current + 1) % projects.length].image}
-            alt="Project Right"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </div>
-        {/* Pagination Dots */}
-       <div className="flex justify-center items-center mt-16 gap-4">
-        <button
-          className="w-8 h-8 rounded-full border cursor-pointer border-gray-400 flex items-center justify-center bg-gray-400 text-gray-700 hover:bg-gray-100"
-          onClick={prevProject}
-        >
-          <ChevronLeft  size={22} strokeWidth={3} />  
-        </button>
-
-        <button
-          className="w-10 h-10 rounded-full cursor-pointer bg-black text-white flex items-center justify-center"
-          onClick={nextProject}
-        >
-          <ChevronRight size={24} strokeWidth={2.5} /> 
-        </button>
-      </div>
+      
+            {/* Pagination Dots */}
+            <div className="flex justify-center items-center mt-10 md:mt-14 gap-4">
+              <button
+                className="w-8 h-8 rounded-full border border-gray-400 flex items-center justify-center bg-gray-300 text-gray-700 hover:bg-gray-100"
+                onClick={prevProject}
+              >
+                <ChevronLeft size={22} strokeWidth={3} />
+              </button>
+      
+              <button
+                className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center"
+                onClick={nextProject}
+              >
+                <ChevronRight size={24} strokeWidth={2.5} />
+              </button>
+            </div>
+       
     </section>
   );
 };

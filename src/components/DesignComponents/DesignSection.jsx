@@ -18,7 +18,7 @@ const DesignSection = () => {
           <img
             src="/Layer_1.png"  
             alt="Architectural Blueprint Section"
-            className="max-w-[700px] lg:max-w-[800px] xl:max-w-[900px] h-auto object-contain"
+            className="max-w-[400px] lg:max-w-[800px] xl:max-w-[900px] h-auto object-contain"
           />
         </div>
 
@@ -35,7 +35,7 @@ const DesignSection = () => {
             From open courtyards that breathe to textures that age gracefully — every decision is a quiet nod to balance, longevity, and livability.
           </p>
 
-          <button className="mt- px-6 py-2 border border-[#2F352D] text-[#2F352D] rounded-full text-sm font-medium hover:bg-[#2F352D] hover:text-white transition duration-300 w-fit ml-12 ">
+          <button className="hidden sm:block  mt- px-6 py-2 border border-[#2F352D] text-[#2F352D] rounded-full text-sm font-medium hover:bg-[#2F352D] hover:text-white transition duration-300 w-fit ml-12 ">
             LEARN MORE
           </button>
         </div>

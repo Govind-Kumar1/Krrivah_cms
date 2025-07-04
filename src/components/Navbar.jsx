@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -74,7 +74,15 @@ const Navbar = () => {
             onClick={() => setMenuOpen(!menuOpen)}
             className="text-white"
           >
-            {menuOpen ? <X size={28} /> : <Menu size={28} />}
+            {menuOpen ? (
+              <X size={28} className="text-white" />
+            ) : (
+              <img
+                src="/Vector.png"
+                alt="Menu"
+                className="w-6 h-6 object-contain"
+              />
+            )}
           </button>
         </div>
       </div>

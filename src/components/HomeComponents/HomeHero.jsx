@@ -81,45 +81,46 @@ const HomeHero = () => {
             </div>
 
             {/* ---------- Mobile View ---------- */}
-            <div className="md:hidden relative z-20 p-6 space-y-4">
-                {/* Brand Text */}
-                <h1 className="text-[64px] mt-20 font-light leading-tight tracking-wide">
-                    {slides[current].brand}
-                </h1>
+             {/* ---------- Mobile View ---------- */}
+<div className="md:hidden relative z-20 flex flex-col justify-between min-h-screen px-6 py-10">
+    {/* Brand Text */}
+    <h1 className=" mt-24 md:mt-0 text-7xl md:text-6xl font-light leading-tight tracking-wide">
+        {slides[current].brand}
+    </h1>
 
-                {/* Title */}
-                <h2 className="text-3xl mt-12 font-light uppercase tracking-wide">
-                    {slides[current].title}
-                </h2>
+    {/* Title */}
+    <h2 className="text-4xl font-light uppercase tracking-wide mt-30 md:mt-10">
+        {slides[current].title}
+    </h2>
 
-                {/* Description */}
-                <p className="text-[17px] font-light leading-relaxed">
-                    {slides[current].description}
-                </p>
+    {/* Description */}
+    <p className="text-[16px] font-light leading-relaxed text-white/90">
+        {slides[current].description}
+    </p>
 
-                <div className='flex items-center justify-between mt-24'>
-                    {/* Button */}
-                <button className="px-6 py-2 border border-gray-500   text-white text-sm font-semibold tracking-wide rounded-full hover:bg-gray-200 transition">
-                    LEARN MORE
-                </button>
+    {/* Button + Pagination */}
+    <div className="flex items-center justify-between mt-10">
+        <button className="px-6 py-2 border border-gray-500 text-white text-sm font-semibold tracking-wide rounded-full hover:bg-gray-200 transition">
+            LEARN MORE
+        </button>
 
-                {/* Pagination (Mobile - Bottom Numbers) */}
-                <div className="absolute bottom-6 right-6 flex space-x-2">
-                    {slides.map((_, idx) => (
-                        <span
-                            key={idx}
-                            className={`w-6 h-6 flex items-center justify-center  font-semibold rounded-full ${
-                                idx === current
-                                    ? ' text-white text-2xl' 
-                                    : 'text-white/70 text-base'
-                            }`}
-                        >
-                            {(idx + 1).toString().padStart(2, '0')}
-                        </span>
-                    ))}
-                </div>
-                </div>
-            </div>
+        <div className="flex space-x-2">
+            {slides.map((_, idx) => (
+                <span
+                    key={idx}
+                    className={`w-6 h-6 flex items-center justify-center font-semibold rounded-full ${
+                        idx === current
+                            ? 'text-white text-2xl'
+                            : 'text-white/70 text-base'
+                    }`}
+                >
+                    {(idx + 1).toString().padStart(2, '0')}
+                </span>
+            ))}
+        </div>
+    </div>
+</div>
+
         </div>
     );
 };

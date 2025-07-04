@@ -96,49 +96,54 @@ const FeaturedProjects = () => {
           </div>
         </div>
 
-        {/* Current Project (Center) */}
-        <div className="w-full max-w-[460px] flex flex-col mx-auto">
-          {/* Image with overlay */}
-          <div className="relative w-full h-[240px] md:h-[600px]">
-            <img
-              src={projects[current].image}
-              alt={projects[current].title}
-              className="w-full h-full object-cover"
-            />
-            {/* Overlay: Title and tags */}
-            <div className="absolute bottom-0 left-0 w-full px-4 md:px-6 pt-6 z-10">
-              <h3 className="text-3xl md:text-[64px] mb-3 text-white drop-shadow-lg">
-                {projects[current].title}
-              </h3>
-              <div className="flex gap-2 text-xs font-semibold uppercase tracking-wide mb-4 flex-wrap">
-                {projects[current].tags.map((tag, idx) => (
-                  <span
-                    key={idx}
-                    className="h-[30px] gap-[10px] pt-[6px] pr-[12px] pb-[6px] pl-[12px] rounded-full border border-white bg-black/25 backdrop-blur-[5px] text-white flex items-center"
-                  >
-                    {tag.toLowerCase().includes("goa") && <LocationIcon />}
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-transparent z-0" />
-          </div>
+       {/* Current Project (Center) */}
+<div className="w-full max-w-[460px] flex flex-col mx-auto">
+  {/* Image with overlay */}
+  <div className="relative w-full h-[520px] md:h-[600px] px-4 md:px-0 overflow-hidden rounded-md">
+    <img
+      src={projects[current].image}
+      alt={projects[current].title}
+      className="w-full h-full object-cover"
+    />
 
-          {/* Content below the image */}
-          <div className="w-full pt-6 bg-white text-black flex flex-col md:flex-row items-center justify-between gap-4 md:gap-[24px] px-4 md:px-0">
-            <p className=" basis-7/10 font-normal text-[15px] leading-[120%] tracking-[0px] text-[#0E0E0E]">
-              {projects[current].description}
-            </p>
-            <button
-              className="basis-3/10 border border-gray-300 text-sm font-semibold text-[#0B2204] hover:bg-[#393F36] hover:text-white px-2 py-3 rounded-full transition hover:cursor-pointer"
-              onClick={() => navigate("/ProjectDetails")}
-            >
-              LEARN MORE
-            </button>
-          </div>
-        </div>
+    {/* Overlay: Title and tags */}
+    <div className="absolute bottom-0 left-0 w-full p-6 z-10">
+      <h3 className="text-[36px] leading-tight text-white font-serif mb-4">
+        {projects[current].title}
+      </h3>
 
+      <div className="flex gap-2 text-xs font-semibold uppercase tracking-wide mb-4 flex-wrap">
+        {projects[current].tags.map((tag, idx) => (
+          <span
+            key={idx}
+            className="gap-2 px-3 py-[6px] rounded-full border border-white bg-black/30 backdrop-blur-[5px] text-white flex items-center text-[12px]"
+          >
+            {tag.toLowerCase().includes("goa") && <LocationIcon />}
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-0" />
+  </div>
+
+  {/* Description + Button */}
+{/* Description + Button */}
+<div className="w-full bg-white text-black p-6 flex flex-col items-center gap-4 md:flex-row ">
+  <p className="md:-ml-5 text-[14px] text-[#0E0E0E] leading-[1.5] text-center md:text-left">
+    {projects[current].description}
+  </p>
+  <button
+    className="w-[280px] border border-gray-300 text-sm font-semibold text-[#0B2204] hover:bg-[#393F36] hover:text-white px-4 py-3 rounded-full transition hover:cursor-pointer"
+    onClick={() => navigate("/ProjectDetails")}
+  >
+    LEARN MORE
+  </button>
+</div>
+
+
+</div>
         {/* Next Project (Right) */}
         <div className="  w-[420px] h-[600px] overflow-hidden shadow-md hidden lg:block">
           <img
@@ -150,9 +155,9 @@ const FeaturedProjects = () => {
       </div>
 
       {/* Pagination Dots */}
-      <div className="flex justify-center items-center mt-24 md:mt-18  gap-4">
+      <div className="flex justify-center items-center mt-10 md:mt-14 gap-4">
         <button
-          className="w-8 h-8 rounded-full border border-gray-400 flex items-center justify-center bg-gray-400 text-gray-700 hover:bg-gray-100"
+          className="w-8 h-8 rounded-full border border-gray-400 flex items-center justify-center bg-gray-300 text-gray-700 hover:bg-gray-100"
           onClick={prevProject}
         >
           <ChevronLeft size={22} strokeWidth={3} />

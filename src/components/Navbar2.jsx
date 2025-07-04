@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar2 = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Prevent scrolling when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
   }, [menuOpen]);
@@ -51,10 +50,18 @@ const Navbar2 = () => {
           ))}
         </div>
 
-        {/* Hamburger Icon */}
+        {/* Mobile Hamburger Icon */}
         <div className="md:hidden relative z-50">
           <button onClick={() => setMenuOpen(!menuOpen)} className="text-black">
-            {menuOpen ? <X size={28} /> : <Menu size={28} />}
+            {menuOpen ? (
+              <X size={28} />
+            ) : (
+              <img
+                src="/Vector2.png" 
+                alt="Menu"
+                className="w-6 h-6 object-contain text-contrast"
+              />
+            )}
           </button>
         </div>
       </div>
