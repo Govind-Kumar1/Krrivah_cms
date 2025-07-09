@@ -65,7 +65,7 @@ const HomeHero = () => {
 
             {/* Desktop Hero Content */}
             <div className="hidden md:block absolute z-20 bottom-24 right-[2vw] max-w-[28vw]">
-                <h2 className="text-[2rem] font-light mb-6 tracking-wider leading-tight">
+                <h2 className="text-[2rem] font-light mb-6 tracking-wider font-merchant leading-tight">
                     {slides[current].title}
                 </h2>
                 <p className="text-[16px] font-normal leading-5 text-white/90">
@@ -85,7 +85,7 @@ const HomeHero = () => {
              {/* ---------- Mobile View ---------- */}
 <div className="md:hidden relative z-20 flex flex-col justify-between min-h-screen px-6 py-10">
     {/* Brand Text */}
-    <h1 className=" mt-24 md:mt-0 text-7xl md:text-6xl font-light leading-tight tracking-wide">
+    <h1 className=" mt-24 md:mt-0 font-merchant text-7xl md:text-6xl font-light leading-tight tracking-wide">
         {slides[current].brand}
     </h1>
 

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
 
 const blogPosts = [
   {
@@ -10,7 +9,7 @@ const blogPosts = [
     title: "Inside Moira Villas: The Art of Material Harmony",
     excerpt:
       "Explore the textures, tones, and finishes that make Moira Villas a study in material balance — from taupe floors to bronze fixtures.",
-    image: "/SCENE 8.png",
+    image: "SCENE 8.png",
   },
   {
     id: 2,
@@ -19,7 +18,7 @@ const blogPosts = [
     title: "Beyond Square Feet: Rethinking Space in Urban Homes",
     excerpt:
       "It’s not about how much space you have — it’s how meaningfully you design it. Here’s our take on intentional living in compact layouts.",
-    image: "/pic3.png",
+    image: "pic3.png",
   },
   {
     id: 3,
@@ -28,20 +27,11 @@ const blogPosts = [
     title: "The Future of Living: Compact, Flexible, Smart",
     excerpt:
       "From compact homes to flexible spaces — here are a few ideas shaping future homes.",
-    image: "/image2.png",
+    image: "image2.png",
   },
 ];
 
 const RelatedBlogs = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
- 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % blogPosts.length);
-    },2000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section className="max-w-7xl mx-auto px-4 py-16">
       {/* Header */}
@@ -60,7 +50,7 @@ const RelatedBlogs = () => {
         >
           VIEW ALL
           <ChevronRight
-            className="md:hidden  bg-[#E3E8E0] text-black rounded-full flex items-center justify-center hover:bg-[#0E0E0E] hover:text-white transition p-1"
+            className="md:hidden bg-[#E3E8E0] text-black rounded-full flex items-center justify-center hover:bg-[#0E0E0E] hover:text-white transition p-1"
             size={30}
             strokeWidth={2}
           />
@@ -69,33 +59,41 @@ const RelatedBlogs = () => {
 
       {/* Blog Cards */}
       <div>
-        {/* Mobile: Carousel */}
-        <div className="sm:hidden w-full flex justify-center">
-            <div className="w-[300px] bg-white h-[450px] flex flex-col transition duration-500 ease-in-out">
-              <img
-                src={blogPosts[currentIndex].image}
-                alt={blogPosts[currentIndex].title}
-                className="w-full h-[220px] object-cover"
-              />
-              <div className="p-5 flex-1 flex flex-col">
-                <p className="text-xs font-semibold uppercase text-[#393F36] mb-2 tracking-wide">
-                  {blogPosts[currentIndex].category}
-                  <span className="text-[#828282]"> • {blogPosts[currentIndex].date}</span>
-                </p>
-                <h3 className="text-md font-semibold text-[#2E2E2E] mb-2">
-                  {blogPosts[currentIndex].title}
-                </h3>
-                <p className="text-sm text-[#5F5F5F] leading-relaxed">
-                  {blogPosts[currentIndex].excerpt}
-                </p>
-              </div>
-            </div>
+        {/* Mobile: Horizontal Scroll Slider */}
+        <div className="sm:hidden w-full overflow-x-auto pb-4">
+          <div className="flex gap-4 px-2 w-max">
+            {blogPosts.map((post) => (
+              <Link
+                to={`/blogdetails`}
+                key={post.id}
+                className="w-[300px] shrink-0 bg-white h-[450px]   shadow-sm transition duration-300 ease-in-out"
+              >
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-[220px] object-cover  "
+                />
+                <div className="p-5 flex flex-col">
+                  <p className="text-xs font-semibold uppercase text-[#393F36] mb-2 tracking-wide">
+                    {post.category}
+                    <span className="text-[#828282]"> • {post.date}</span>
+                  </p>
+                  <h3 className="text-md font-semibold text-[#2E2E2E] mb-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-[#5F5F5F] leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                </div>
+              </Link>
+            ))}
           </div>
+        </div>
 
         {/* Desktop View: Grid */}
         <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
-            <Link to={`/blogs/${post.id}`} key={post.id} className="group">
+            <Link to={`/blogdetails`} key={post.id} className="group">
               <img
                 src={post.image}
                 alt={post.title}

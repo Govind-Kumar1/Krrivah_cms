@@ -14,13 +14,13 @@ const ArticleSection = () => {
       </p>
 
       {/* First Image */}
-      <img
+      {/* <img
         src="image4.png"
         alt="Futuristic hallway"
         className="w-full md:h-auto h-[480px]  my-8"
-      />
+      /> */}
 
-      {/* Blockquote */}
+      {/* Blockquote
       <blockquote className=" text-2xl font-medium border-l-4 border-[#393F36] pl-4 italic text-[#212121] mb-4">
         “In a world older and more complete than ours they move finished and
         complete, gifted with extensions of the senses we have lost or never
@@ -28,10 +28,10 @@ const ArticleSection = () => {
         <p className="mt-8 text-sm text-[#535862] mb-8 not-italic">
           — Olivia Bhatt, Design Researcher
         </p>
-      </blockquote>
+      </blockquote> */}
 
       {/* Traditional Ideas */}
-      <h3 className="text-2xl  font-semibold  text-[#181D27] mb-2">
+      {/* <h3 className="text-2xl  font-semibold  text-[#181D27] mb-2">
         Traditional ideas that inspire us
       </h3>
       <p className="mb-6 text-sm text-[#535862] font-medium  leading-relaxed">
@@ -44,7 +44,7 @@ const ArticleSection = () => {
         Krrivah projects like Moira Villas reflect this deeply: cool natural
         finishes, calming symmetry, and a sense of openness that connects the
         indoors with the earth around.
-      </p>
+      </p> */}
 
       {/* Modern Ideas */}
       <h3 className="text-2xl font-semibold mb-2 text-[#181D27]">

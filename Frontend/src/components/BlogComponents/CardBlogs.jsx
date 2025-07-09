@@ -11,7 +11,7 @@ const posts = [
     date: "June 5, 2025",
     title: "Why Design Thinking Matters in Real Estate",
     desc: "From intuitive layouts to natural light flow, design thinking is transforming how we imagine modern living. Here's how we integrate it at Krrivah.",
-    image: "pic8.png",
+    image: "/SCENE 24.png",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const posts = [
     date: "June 5, 2025",
     title: "Inside Moira Villas: The Art of Material Harmony",
     desc: "Explore the textures, tones, and finishes that make Moira Villas a study in material balance — from taupe floors to bronze fixtures.",
-    image: "pic7.png",
+    image: "SCENE 8.png",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const posts = [
     date: "June 5, 2025",
     title: "Beyond Square Feet: Rethinking Space in Urban Ho...",
     desc: "It’s not about how much space you have — it’s how meaningfully you design it. Here’s our take on intentional living in compact layouts.",
-    image: "pic6.png",
+    image: "pic3.png",
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ const posts = [
     date: "June 5, 2025",
     title: "Sustainable Homes Start with Simple Choices",
     desc: "It’s not about how much space you have — it’s how meaningfully you design it. Here’s our take on intentional living in compact layouts.",
-    image: "pic5.png",
+    image: "pic2.png",
   },
   {
     id: 5,
@@ -43,7 +43,7 @@ const posts = [
     date: "June 5, 2025",
     title: "Blending Tradition with Modern Architecture",
     desc: "Why today’s best homes beautifully borrow from both rich heritage and minimalism to stay timeless.",
-    image: "pic4.png",
+    image: "image1.png",
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ const posts = [
     date: "June 5, 2025",
     title: "The Future of Living: Compact, Flexible, Smart",
     desc: "From compact homes to flexible spaces — here are a few ideas shaping future homes.",
-    image: "pic3.png",
+    image: "image2.png",
   },
   {
     id: 7,
@@ -59,7 +59,7 @@ const posts = [
     date: "June 5, 2025",
     title: "Designing Homes That Feel Like They Belong",
     desc: "It’s not about how much space you have — it’s how meaningfully you design it. Here’s our take on intentional living in compact layouts.",
-    image: "pic2.png",
+    image: "pic4.png",
   },
   {
     id: 8,
@@ -67,7 +67,7 @@ const posts = [
     date: "June 5, 2025",
     title: "Nature-Inspired Design for Greener Living",
     desc: "It’s not about how much space you have — it’s how meaningfully you design it. Here’s our take on intentional living in compact layouts.",
-    image: "pic1.png",
+    image: "image3.png",
   },
 ];
 

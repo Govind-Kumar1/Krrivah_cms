@@ -1,24 +1,74 @@
+# ===================== #
+# ✅ Common Settings
+# ===================== #
+
+# Dependency folders
+node_modules/
+bower_components/
+
 # Logs
 logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# OS generated files
 .DS_Store
+Thumbs.db
+
+# Env files
+.env
+.env.*
+
+
+# ===================== #
+# ✅ Frontend (React)
+# ===================== #
+
+# Build output
+/build
+/dist
+
+# Testing
+coverage/
+
+# IDEs and editors
+.vscode/
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+
+# Production build
+Frontend/build/
+Frontend/.env.local
+Frontend/.env.production
+Frontend/.env.development
+Frontend/.cache
+Frontend/public/env.js
+
+
+# ===================== #
+# ✅ Backend (Node/Express)
+# ===================== #
+
+Backend/node_modules/
+Backend/.env
+Backend/logs/
+Backend/debug.log
+Backend/.DS_Store
+Backend/uploads/
+Backend/temp/
+
+# Ignore any local database or generated files
+*.sqlite
+*.db
+*.pid
+*.seed.js
+
+# If using TypeScript in backend
+Backend/dist/
+Backend/*.tsbuildinfo
+

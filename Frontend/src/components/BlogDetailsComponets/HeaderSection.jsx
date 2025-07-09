@@ -2,7 +2,7 @@ import React from "react";
  
 const HeaderSection = () => {
   return (
-    <header className="text-center  py-12 max-w-[1280px] mx-auto">
+    <header className="text-center  py-12 max-w-[1280px] w-screen mx-auto">
       <p className="uppercase text-xs tracking-widest text-[#393F36] mb-2">
         Trends <span className="text-[#828282]">• June 5, 2025</span>
       </p>

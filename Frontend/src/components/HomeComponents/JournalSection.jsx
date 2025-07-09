@@ -58,7 +58,7 @@ const JournalSection = () => {
 							{posts.map((post, index) => (
 								<div
 									key={index}
-									className="min-w-[80vw] max-w-[9vw] bg-white shadow-sm h-[420px] flex-shrink-0 rounded-md overflow-hidden"
+									className="min-w-[80vw] max-w-[9vw] bg-white shadow-sm h-[420px] flex-shrink-0  overflow-hidden"
 								>
 									<img
 										src={post.image}

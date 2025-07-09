@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+ 
 
 const slides = [
   {
@@ -28,16 +28,17 @@ const slides = [
 const CarousalProject = () => {
   const [current, setCurrent] = useState(0);
 
-  const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
+  // Auto-play logic: Change slide every 1 second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 1000); // 1000ms = 1 second
 
-  const nextSlide = () => {
-    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
+    return () => clearInterval(interval); // cleanup on unmount
+  }, []);
 
   return (
-    <div className="relative  w-full sm:w-[95%] h-[543px] overflow-hidden text-white sm:mx-auto">
+    <div className="relative w-full sm:w-[95%] h-[543px] overflow-hidden text-white sm:mx-auto">
       {/* Background Image */}
       <img
         src={slides[current].image}
@@ -51,12 +52,12 @@ const CarousalProject = () => {
       {/* Slide Number Indicators */}
       <div
         className="
-    absolute z-20 flex items-center md:items-start
-    sm:top-1/2 sm:left-6 sm:-translate-y-1/2 
-    sm:flex sm:flex-col 
-    flex-row gap-2
-    bottom-4 right-4
-  "
+          absolute z-20 flex items-center md:items-start
+          sm:top-1/2 sm:left-6 sm:-translate-y-1/2 
+          sm:flex sm:flex-col 
+          flex-row gap-2
+          bottom-4 right-4
+        "
       >
         {slides.map((_, idx) => (
           <div
@@ -71,24 +72,9 @@ const CarousalProject = () => {
           </div>
         ))}
       </div>
-
-      {/* Navigation arrow */}
-      <div className="absolute left-4  bottom-6 md:right-6 md:left-auto z-30 flex gap-4 ">
-        <button
-          onClick={prevSlide}
-          className="w-10 h-10 bg-[#C7C7C7] text-black rounded-full flex items-center justify-center  hover:bg-[#0E0E0E] hover:text-white transition"
-        >
-          <ChevronLeft size={20} />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="w-10 h-10 bg-[#C7C7C7] text-black rounded-full flex items-center justify-center hover:bg-[#0E0E0E] hover:text-white transition"
-        >
-          <ChevronRight size={20} />
-        </button>
-      </div>
     </div>
   );
 };
 
 export default CarousalProject;
+ 

@@ -44,7 +44,8 @@ export default function ContactSection() {
   };
 
   return (
-   <section className="flex flex-col-reverse md:grid md:grid-cols-2 min-h-screen w-full">
+    <section className="flex flex-col-reverse md:grid md:grid-cols-2 min-h-screen w-full">
+
       {/* Left Side */}
       <div className="bg-[#4B3B2B] text-white px-10 py-16 flex flex-col justify-between">
         <div className="space-y-12">
@@ -52,8 +53,8 @@ export default function ContactSection() {
           <div className="flex items-start gap-4">
             <Mail className="w-6 h-6 text-[#D5C7B2] mt-1" />
             <div>
-              <h3 className="text-lg font-semibold">Drop us a line</h3>
-              <p className="text-sm text-[#FEFEFC] mb-1">
+              <h3 className="text-lg font-semibold text-[#FFFFFF]">Drop us a line</h3>
+              <p className="text-sm font-semibold text-[#FEFEFC] mb-1">
                 Reach out to our team for expert assistance.
               </p>
               <p className="text-sm text-[#FFFFFF]">hello@krrivah.com</p>
@@ -66,11 +67,11 @@ export default function ContactSection() {
           <div className="flex items-start gap-4">
             <MapPin className="w-6 h-6 text-[#D5C7B2] mt-1" />
             <div>
-              <h3 className="text-lg font-semibold">Our Headquarters</h3>
-              <p className="text-sm text-[#FEFEFC] mb-1">
+              <h3 className="text-lg font-semibold  text-[#FFFFFF]">Our Headquarters</h3>
+              <p className="text-sm text-[#FEFEFC] mb-1 font-semibold">
                 Visit us at our headquarters—we’d love to meet you.
               </p>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed  text-[#FFFFFF]">
                 #102, 1st Floor, Urban Heights,
                 <br />
                 Koramangala 5th Block, Bengaluru - 560095
@@ -84,8 +85,8 @@ export default function ContactSection() {
           <div className="flex items-start gap-4">
             <Phone className="w-6 h-6 text-[#D5C7B2] mt-1" />
             <div>
-              <h3 className="text-lg font-semibold">Call our Experts</h3>
-              <p className="text-sm font-medium mb-1">
+              <h3 className="text-lg font-semibold  text-[#FFFFFF]">Call our Experts</h3>
+              <p className="text-sm font-normal mb-1  text-[#FFFFFF]">
                 Mon–Fri, 9:00 AM to 5:00 PM
               </p>
               <p className="text-sm">+91 9876543210</p>

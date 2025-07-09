@@ -97,10 +97,10 @@ const FeaturedProjects = () => {
         </div>
 
        {/* Current Project (Center) */}
-<div className="w-full max-w-[460px] flex flex-col mx-auto">
+<div className="w-full max-w-[460px]  flex flex-col mx-auto">
   {/* Image with overlay */}
-  <div className="relative w-full h-[520px] md:h-[600px] px-4 md:px-0 overflow-hidden rounded-md">
-    <img
+  <div className="relative w-full h-[520px] md:h-[600px] px-4 md:px-0 overflow-hidden ">
+    <img 
       src={projects[current].image}
       alt={projects[current].title}
       className="w-full h-full object-cover"
@@ -116,16 +116,16 @@ const FeaturedProjects = () => {
         {projects[current].tags.map((tag, idx) => (
           <span
             key={idx}
-            className="gap-2 px-3 py-[6px] rounded-full border border-white bg-black/30 backdrop-blur-[5px] text-white flex items-center text-[12px]"
+            className="gap-2 px-3 py-[6px] rounded-full border border-white  backdrop-blur-[5px] text-white flex items-center text-[12px]"
           >
             {tag.toLowerCase().includes("goa") && <LocationIcon />}
             {tag}
           </span>
         ))}
-      </div>
+      </div> 
     </div>
 
-    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-0" />
+    <div className="absolute inset-0  " />
   </div>
 
   {/* Description + Button */}
