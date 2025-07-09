@@ -5,6 +5,7 @@
 # Dependency folders
 node_modules/
 bower_components/
+generated
 
 # Logs
 logs
@@ -29,7 +30,7 @@ Thumbs.db
 # Build output
 /build
 /dist
-
+/generated
 # Testing
 coverage/
 
