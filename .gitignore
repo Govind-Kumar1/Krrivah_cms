@@ -27,11 +27,6 @@ Thumbs.db
 .env
 .env.*
 
-
-# ===================== #
-# ✅ Frontend (React)
-# ===================== #
-
 # Build output
 /build
 /dist
@@ -54,11 +49,6 @@ Frontend/.env.production
 Frontend/.env.development
 Frontend/.cache
 Frontend/public/env.js
-
-
-# ===================== #
-# ✅ Backend (Node/Express)
-# ===================== #
 
 Backend/node_modules/
 Backend/.env
