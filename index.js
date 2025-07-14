@@ -5,9 +5,9 @@ import pkg from '@prisma/client';
 
 const { PrismaClient } = pkg;
 
-dotenv.config();
+dotenv.config(); 
 
-const app = express();
+const app = express(); 
 const prisma = new PrismaClient();
 const PORT = process.env.PORT || 5000;
 
